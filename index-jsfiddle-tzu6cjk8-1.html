@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>binary-translator.html</title>
+
+  <style>
+    body {
+  background: linear-gradient(to right, #004e92, #000428);
+  color: white;
+}
+
+  </style>
+
+  
+</head>
+<body>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Binary Code Translator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      text-align: center;
+      margin: 50px;
+    }
+    h1 {
+      color: #0078d4;
+    }
+    textarea {
+      width: 90%;
+      height: 80px;
+      margin: 10px 0;
+      padding: 10px;
+      border: 2px solid #0078d4;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0078d4;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Binary Code Translator</h1>
+
+  <h3>Text to Binary</h3>
+  <textarea id="textInput" placeholder="Enter text here..."></textarea><br>
+  <button onclick="textToBinary()">Convert to Binary</button>
+
+  <h3>Binary Output</h3>
+  <textarea id="binaryOutput" readonly></textarea>
+
+  <h3>Binary to Text</h3>
+  <textarea id="binaryInput" placeholder="Enter binary here... (use space between bytes)"></textarea><br>
+  <button onclick="binaryToText()">Convert to Text</button>
+
+  <h3>Text Output</h3>
+  <textarea id="textOutput" readonly></textarea>
+
+  <script>
+    function textToBinary() {
+      const text = document.getElementById("textInput").value;
+      let binary = "";
+      for (let i = 0; i < text.length; i++) {
+        binary += text[i].charCodeAt(0).toString(2).padStart(8, '0') + " ";
+      }
+      document.getElementById("binaryOutput").value = binary.trim();
+    }
+
+    function binaryToText() {
+      const binary = document.getElementById("binaryInput").value.split(" ");
+      let text = "";
+      for (let i = 0; i < binary.length; i++) {
+        if (binary[i] !== "") {
+          text += String.fromCharCode(parseInt(binary[i], 2));
+        }
+      }
+      document.getElementById("textOutput").value = text;
+    }
+  </script>
+
+</body>
+</html>
+
+
+  <script>
+    
+  </script>
+</body>
+</html>
